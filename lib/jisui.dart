@@ -15,7 +15,7 @@ class Jisui extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'JisuiÚü¸gY',
+              'Jisuiãƒšãƒ¼ã‚¸ã§ã™',
               style: TextStyle(fontSize: 24),
             ),
           ],

@@ -9,6 +9,7 @@
   },
   "scripts": {
     "-----------↓開発環境-----------": "",
+    "環境変数の設定": "flutter pub run build_runner build",
     "-----------↓ビルド-----------": "",
     "android apkファイル" : "flutter build apk"
   },

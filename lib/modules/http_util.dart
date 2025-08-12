@@ -1,15 +1,21 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import '../env/env.dart';
 
 class HttpUtil {
-  static const String _baseUrl = 'https://api.example.com';
-  
-  static final Map<String, String> _defaultHeaders = {
+  late final String _baseUrl;
+
+  HttpUtil({String? baseUrl}) {
+    _baseUrl = baseUrl ?? Env.backendUrl;
+  }
+
+  final Map<String, String> _defaultHeaders = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   };
 
-  static Future<Map<String, dynamic>> get(
+  
+  Future<Map<String, dynamic>> get(
     String endpoint, {
     Map<String, String>? headers,
     Map<String, dynamic>? queryParams,
@@ -27,7 +33,7 @@ class HttpUtil {
     }
   }
 
-  static Future<Map<String, dynamic>> post(
+  Future<Map<String, dynamic>> post(
     String endpoint, {
     Map<String, dynamic>? body,
     Map<String, String>? headers,
@@ -49,7 +55,7 @@ class HttpUtil {
     }
   }
 
-  static Uri _buildUri(String endpoint, [Map<String, dynamic>? queryParams]) {
+  Uri _buildUri(String endpoint, [Map<String, dynamic>? queryParams]) {
     final uri = Uri.parse('$_baseUrl$endpoint');
     if (queryParams != null && queryParams.isNotEmpty) {
       return uri.replace(queryParameters: queryParams.map(
@@ -59,7 +65,7 @@ class HttpUtil {
     return uri;
   }
 
-  static Map<String, dynamic> _handleResponse(http.Response response) {
+  Map<String, dynamic> _handleResponse(http.Response response) {
     if (response.statusCode >= 200 && response.statusCode < 300) {
       if (response.body.isEmpty) {
         return {'success': true};
