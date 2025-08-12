@@ -1,0 +1,17 @@
+{
+  "name": "boocloud_front",
+  "version": "1.0.0",
+  "description": "A new Flutter project.",
+  "main": "",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "-----------↓開発環境-----------": "",
+    "-----------↓ビルド-----------": "",
+    "android apkファイル" : "flutter build apk"
+  },
+  "author": "sato wataru",
+  "license": "ISC"
+}
